@@ -109,18 +109,27 @@
           <li class="info-director">
             <span>감독 :&nbsp;</span>
             <span>
-              ${directorDTO.director_nm}
+              에드워드 버거
             </span>
           </li>
-<li class="info-main_actor">
-  <span>출연 :&nbsp;</span>
-  <span id="entertainerNames">
-    <c:forEach items="${entertainerlist}" var="EntertainerDTO">
-      ${delimiter}${EntertainerDTO.entertainer_nm}
-      <c:set var="delimiter" value=", " />
-    </c:forEach>&nbsp;
-  </span>
-</li>
+          <li class="info-main_actor">
+            <span>주연 :&nbsp;</span>
+            <span>
+              펠릭스 카머러,&nbsp;
+            </span>
+            <span>
+              알브레히트 슈흐
+            </span>
+          </li>
+          <li class="info-supporting_actor">
+            <span>조연 :&nbsp;</span>
+            <span>
+             데비트 슈트리조,&nbsp;                      
+            </span>            
+            <span>
+              아드리안 그뤼
+            </span>
+          </li>
         </ul>
       </div>
       </section>
@@ -237,7 +246,7 @@
 	                      	<input class="LikeBtn" id="heart-on" type="image" src="${path}/resources/images/img/heart_on.png" width="35" height="80%"  data-review-no="${Review.review_no}" >
 	                    </c:when>
 					<c:otherwise>
-            <input class="LikeBtn" id="heart-off" type="image" src="${path}/resources/images/img/heart_off.png"
+						<input class="LikeBtn" id="heart-off" type="image" src="${path}/resources/images/img/heart_off.png"
 						width="35" height="80%" data-review-user-no="${Review.user_no }" data-review-no="${Review.review_no}" >
 					</c:otherwise>
 					</c:choose>		
@@ -886,7 +895,7 @@
 	                if (result == 0) {
 	                    // 저장하는 post ajax
 	                    $.post(
-                        "/ottt/reply/insertLike",
+	                        "/ottt/reply/insertLike",
 	                        { "user_no": "${user_no}",
 	                        	"review_no": review_no,
 	        	            	"review_user_no": review_user_no },
@@ -1155,21 +1164,7 @@
     });
   }
 </script>
-<script>
-  window.addEventListener('DOMContentLoaded', function() {
-    var entertainerNames = document.getElementById('entertainerNames');
-    var names = entertainerNames.innerHTML.split(', ');
 
-    entertainerNames.innerHTML = '';
-
-    for (var i = 0; i < names.length; i++) {
-      if (i > 0) {
-        entertainerNames.innerHTML += '<br>';
-      }
-      entertainerNames.innerHTML += names[i];
-    }
-  });
-</script>
 
     <script
     src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
